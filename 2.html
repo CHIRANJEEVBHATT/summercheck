@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="check"></p>
+    <input id="input" type="number">
+    <button onclick="checknumber()"></button>
+
+    <script>
+        function checknumber(){
+        const num = Number(document.getElementById("input").value);
+       let checking =  num > 0 ? "positive" :(num < 0 ? "negative" : "zero");
+       console.log(checking);
+        let yo = num % 2 == 0 ? "even" : "odd";
+        console.log(yo);
+         document.getElementById("check").innerHTML = `the num is ${checking} and ${ yo}`;
+    }
+    </script>
+</body>
+</html>
