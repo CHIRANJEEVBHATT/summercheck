@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const arr = [95 , 88 , 76 , 64 , 31];
+      let average = arr.reduce((sum, val) => sum + val, 0) / arr.length;
+
+        console.log(average);
+       let add = arr.map(num => num < 35 ? num + 5 : num);
+
+        console.log(add);
+
+      
+        const fruits = ["apple", "banana", "mango", "orange", "kiwi"];
+        let sliced = fruits.slice(1, 4); 
+        fruits.splice(4, 1);
+        let joined = fruits.reduce((acc, val) => acc + '-' + val);
+
+        console.log("Sliced:", sliced);     
+        console.log("After Splice:", fruits);
+        console.log("Joined:", joined);   
+
+        const nums = [3, 6, 9, 12, 15, 18, 21];
+        let a  = nums.filter(num => num%2==0);
+        console.log(a);
+        let ad = a.reduce((acc , val)=>acc+val,0);
+        console.log(ad)
+
+    </script>
+</body>
+</html>

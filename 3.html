@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prime Checker</title>
+</head>
+<body>
+  <p id="display"></p>
+  <input id="input" type="number" placeholder="Enter a number">
+  <button onclick="checkPrime()">CHECK</button>
+
+  <script>
+    const isPrime = (num) => {
+      if (num < 2) return false;
+      for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) return false;
+      }
+      return true;
+    };
+
+    const checkPrime = () => {
+      const value = Number(document.getElementById("input").value);
+      const result = isPrime(value);
+      document.getElementById("display").innerText = result
+        ? `${value} is a prime number`
+        : `${value} is not a prime number`;
+    };
+  </script>
+</body>
+</html>

@@ -9,10 +9,26 @@
 <body>
     <p id="display">hello</p>
     <p id="display1"></p>
+    <p id="demo"></p>
     <button onclick="document.write(34+456)">Try it</button>
     <button onclick="window.print()">Print</button>
     <script >
         window.alert(5+6);
+        let x = myFunction(4, 3);
+      document.getElementById("demo").innerHTML = x;
+
+       function myFunction(a, b) {
+  return a * b;
+     }
+
+     const person = {
+  firstName: "John",
+  lastName : "Doe",
+  id     :  5566
+};
+
+document.getElementById("demo").innerHTML ="The last name is " +  person["lastName"] + "the last name is " + person.lastName;
+
     </script>
     
 </body>
