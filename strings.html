@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>String Checker</title>
+</head>
+<body>
+
+  <input type="text" id="input" placeholder="Type something...">
+  <button onclick="show()">SHOW</button>
+  <p id="display"></p>
+
+  <script>
+    const show = () => {
+      const input = document.getElementById("input").value;
+      const length = input.length;
+      const containsJS = input.includes("js");
+      const upper = input.toUpperCase();
+      const trim  = input.trim();
+      const replace  = trim.replace("" , "-");
+
+      document.getElementById("display").innerText = 
+        `Length: ${length}\nIncludes 'js'?: ${containsJS}\nUppercase: ${upper} \n final is ${replace}`;
+    };
+  </script>
+</body>
+</html>
