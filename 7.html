@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="textInput" type="text" placeholder="Start typing..." />
+<p id="counter">Characters: 0</p>
+<input type="password" placeholder="Enter password" id="password">
+<button id="strength" onclick="checkstrength()">Check Strength</button>
+<p id="show"></p>
+<script>
+    const input  =  document.getElementById("textInput");
+    const click  = document.getElementById("counter");
+
+    input.addEventListener("input" , () => {
+        let length = input.value.length;
+        click.innerHTML = `charater ${length}`;    
+    });
+
+   
+   const checkstrength = () => {
+     const password = document.getElementById("password");
+
+   let len = password.value.length;
+      let ans =    len < 5 ? "weak" : (len > 8 ? "strong" : "medium");
+      document.getElementById("show").innerHTML = `${ans}`; 
+   };
+
+ 
+</script>
+</body>
+</html>
