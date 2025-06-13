@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="text">
+    <p id="show">0</p>
+
+    <script>
+        const input = document.getElementById("text");
+const check = () => {
+let a  =  input.value.trim().split(" ").filter(word => word !== "");
+let b  = a.length;
+document.getElementById("show").innerText = `${b}`;
+};
+input.addEventListener("input" , check);
+    </script>
+</body>
+</html>

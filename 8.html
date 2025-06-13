@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Live Password Strength Checker</title>
+</head>
+<body>
+  <input type="password" placeholder="Enter password" id="password" />
+  <p id="show"></p>
+   
+  <input type="text" id="text">
+  <p id="ch"></p>
+  <script>
+    const password = document.getElementById("password");
+
+    const checkstrength = () => {
+      const len = password.value.length;
+      let ans = len < 5 ? "Too Weak " : (len > 8 ? "Strong " : "Medium ");
+      document.getElementById("show").innerText = `Strength: ${ans}`;
+    };
+
+    password.addEventListener("input", checkstrength);
+
+
+   
+    const textInput = document.getElementById("text");
+    const display = document.getElementById("ch");
+    const uppercase = () => {
+      const a = textInput.value.toUpperCase(); 
+      display.innerText = `${a}`;
+    };
+
+
+    
+     text.addEventListener("input", uppercase);
+  </script>
+</body>
+</html>
