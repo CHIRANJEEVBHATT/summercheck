@@ -8,10 +8,16 @@
 <body>
 
     <p id="output"></p>
+    <button id="clickMe">CLICK</button>
+
+    <button id="change">CHANGE COLOR</button>
     <script>
     document.getElementById("clickMe").addEventListener("click", function () {
   document.getElementById("output").innerText = "You clicked the button!";
 });
+ document.getElementById("change").addEventListener("click", () => {
+    document.body.style.backgroundColor = "blue";
+  });
 </script>
 </body>
 </html>
