@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Split and Join</title>
+</head>
+<body>
+  <input type="text" id="input" placeholder="Enter a sentence">
+  <button onclick="processText()">Process</button>
+  <p id="output"></p>
+
+  <script>
+    const processText = () => {
+      const value = document.getElementById("input").value;
+      const upper  = value.trim().toUpperCase();
+      const split  = value.split("").join("@");
+
+
+      document.getElementById("output").innerText = `${split}`;
+      
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <input type="text" id="input" placeholder="Enter a sentence">
+  <button onclick="processText()">Process</button>
+  <p id="output"></p>
+ 
+  <script>
+    const processText =() =>{
+      const value = document.getElementById("input").value;
+      const trim = value.trim();
+      const char = trim.charAt(2);
+      const repeat = trim.repeat(4);
+      document.getElementById("output").innerText = `trim = ${trim} \n chat at index 2  = ${char} \n string repeat = ${repeat}`;
+    };
+  </script>
+</body>
+</html>
