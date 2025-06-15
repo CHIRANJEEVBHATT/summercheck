@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="text">
+  <p id="ch"></p>
+
+    <script>
+        const textInput = document.getElementById("text");
+    const display = document.getElementById("ch");
+    const replace = () => {
+      const a = textInput.value.replaceAll("bad" , "good"); 
+      display.innerText = `${a}`;
+    };
+
+
+    
+     textInput.addEventListener("input", replace);
+    </script>
+</body>
+</html>

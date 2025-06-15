@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>String Inspector</title>
+</head>
+<body>
+  <input type="text" id="input" placeholder="Enter a sentence">
+  <button onclick="check()">Inspect</button>
+  <pre id="result"></pre>
+
+  <script>
+    function inspectString(str) {
+      return {
+        containsJS: str.includes("JS"),
+        startsWithHello: str.startsWith("Hello"),
+        endsWithWorld: str.endsWith("World"),
+        firstIndexOfA: str.indexOf("a"),
+        lastIndexOfA: str.lastIndexOf("a")
+      };
+    }
+
+    function check() {
+      const value = document.getElementById("input").value;
+      const result = inspectString(value);
+      document.getElementById("result").innerText = JSON.stringify(result, null, 2);
+    }
+  </script>
+</body>
+</html>
