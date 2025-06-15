@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Title Case Converter</title>
+</head>
+<body>
+  <input type="text" id="input" placeholder="Enter a sentence" />
+  <button onclick="convertToTitleCase()">Convert</button>
+  <p id="output"></p>
+
+  <script>
+    const convertToTitleCase = () => {
+            const text = document.getElementById("input").value.trim().toLowerCase();
+            let count  = 0;
+            for(let i =0;i<text.length;i++){
+                if("aeiou".includes(text[i])){
+                    count++;
+                }
+            }
+            document.getElementById("output").innerText = `Total vowels: ${count}`;
+    };
+  </script>
+</body>
+</html>
