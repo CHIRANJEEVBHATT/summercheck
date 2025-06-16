@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" id="input" placeholder="Enter a sentence" />
+  <button onclick="convertToTitleCase()">Convert</button>
+  <p id="output"></p>
+
+  <script>
+    const convertToTitleCase = () => {
+    const sentence = document.getElementById("input").value.trim().toLowerCase();
+    const words = sentence.split(" ");
+    const a  = words.map(word => word.charAt(0).toUpperCase() + word.slice(1)).join("");
+      document.getElementById("output").innerText = a;
+    };
+  </script>
+</body>
+</html>
