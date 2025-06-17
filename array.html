@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" id="itemInput" placeholder="Enter item" />
+  <button onclick="addItem()">Add Item</button>
+  <p id="output"></p>
+  <button onclick="removeItem()">Remove Last</button>
+  <input type="text" id="newItem" placeholder="Add to start">
+ <button onclick="addToStart()">Add to Start</button>
+
+
+
+  <script>
+    const items = [];
+
+    function addItem() {
+      const input = document.getElementById("itemInput").value;
+      items.push(input);
+      document.getElementById("output").innerText = items.join(", ");
+      document.getElementById("itemInput").value = ""; 
+    }
+    const removeItem = () => {
+        items.pop();
+              document.getElementById("output").innerText = items.join(", ");
+
+    }
+    const addToStart = () =>{
+         const start  =  document.getElementById("newItem").value.trim();
+         items.unshift(start);
+         document.getElementById("output").innerText = items.join(", ");
+         document.getElementById("newItem").value = "";
+    };
+  </script>
+</body>
+</html>

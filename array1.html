@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Document</title>
+</head>
+<body>
+
+  <p id="output"></p>
+
+  <input type="text" id="colors" placeholder="Enter color" />
+  <button onclick="Color()">ADD color</button><br><br>
+
+  <input type="number" id="remove" placeholder="Enter index to remove" />
+  <button onclick="removeColor()">Remove Color</button><br><br>
+
+  <input type="number" id="add" placeholder="Index to add at" />
+  <input type="text" id="add1" placeholder="Color to add" />
+  <button onclick="addColor()">ADD color</button><br><br>
+
+  <input type="number" id="replace" placeholder="Index to replace" />
+  <input type="text" id="replace1" placeholder="New color" />
+  <button onclick="replaceColor()">Replace color</button>
+
+  <script>
+    const color = [];
+    const output = document.getElementById("output");
+
+    const updateOutput = () => {
+      output.innerText = color.join(" , ");
+    };
+
+    const Color = () => {
+      const colors = document.getElementById("colors").value.trim();
+      if (colors) {
+        color.push(colors);
+        updateOutput();
+        document.getElementById("colors").value = "";
+      }
+    };
+
+    const removeColor = () => {
+      const index = parseInt(document.getElementById("remove").value);
+      if (!isNaN(index) && index >= 0 && index < color.length) {
+        color.splice(index, 1);
+        updateOutput();
+      }
+      document.getElementById("remove").value = "";
+    };
+
+    const addColor = () => {
+      const index = parseInt(document.getElementById("add").value);
+      const value = document.getElementById("add1").value.trim();
+      if (!isNaN(index) && value) {
+        color.splice(index, 0, value);
+        updateOutput();
+      }
+      document.getElementById("add").value = "";
+      document.getElementById("add1").value = "";
+    };
+
+    const replaceColor = () => {
+      const index = parseInt(document.getElementById("replace").value);
+      const newColor = document.getElementById("replace1").value.trim();
+      if (!isNaN(index) && newColor && index >= 0 && index < color.length) {
+        color.splice(index, 1, newColor);
+        updateOutput();
+      }
+      document.getElementById("replace").value = "";
+      document.getElementById("replace1").value = "";
+    };
+  </script>
+</body>
+</html>
