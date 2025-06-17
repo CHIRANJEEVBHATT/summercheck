@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>
+  <p id="output"></p>
+
+  <script>
+    const fruits = ["apple", "banana", "cherry", "mango"];
+    let result = "";
+
+    for (let i = 0; i < fruits.length; i++) {
+      result += fruits[i] + " ";
+    }
+
+    document.getElementById("output").innerText = result;
+  </script>
+</body>
+</html>
