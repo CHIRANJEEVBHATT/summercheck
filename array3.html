@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>
+  <p id="output"></p>
+
+  <script>
+    const cities = ["Delhi", "Mumbai", "Chennai", "Kolkata"];
+    let result = "";
+
+    for (const city of cities) {
+      result += city + " ";
+    }
+
+    document.getElementById("output").innerText = result;
+  </script>
+</body>
+</html>

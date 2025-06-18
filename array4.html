@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>
+  <p id="output"></p>
+
+  <script>
+    const fruits = ["Apple", "Banana", "Mango", "Orange"];
+    let result = "";
+
+   fruits.forEach((fruit) => {
+    result += fruit + " ";
+   });
+
+    document.getElementById("output").innerText = result;
+  </script>
+</body>
+</html>
