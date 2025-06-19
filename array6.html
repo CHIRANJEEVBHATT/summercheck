@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <h2>Number Filter</h2>
+
+  <input type="number" id="input" placeholder="Enter a number">
+  <button onclick="addNumber()">Add</button>
+  <button onclick="filterNumbers()">Show > 10</button>
+
+  <p><strong>All Numbers:</strong> <span id="all"></span></p>
+  <p>Filtered ( > 10 ): <span id="filtered"></span></p>
+
+  <script>
+    const numbers = [];
+
+    const addNumber = () => {
+      const input = document.getElementById("input");
+      const value = parseInt(input.value);
+      if (!isNaN(value)) {
+        numbers.push(value);
+        input.value = "";
+        document.getElementById("all").textContent = numbers.join(", ");
+        document.getElementById("filtered").textContent = "";
+      }
+    };
+
+    const filterNumbers = () => {
+      const filtered = numbers.filter(num => num > 10);
+      document.getElementById("filtered").textContent = filtered.join(", ");
+    };
+  </script>
+</body>
+</html>

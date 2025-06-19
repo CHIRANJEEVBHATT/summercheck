@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input" placeholder="enter name">
+    <button onclick="addname()">ADD NAME</button>
+    <p id="output"></p>
+    <button onclick="uppercase()">UPPERCASE</button>
+
+    <script>
+        let names = [];
+        const nameList = document.getElementById("output");
+        const addname = () =>{
+        const input  =  document.getElementById("input").value.trim();
+         names.push(input);
+         document.getElementById("input").value = "";
+         updateNameList();
+        }
+        
+        const uppercase = () => {
+            names = names.map((name) => name.toUpperCase());
+            updateNameList();
+            
+        }
+    const updateNameList = () => {
+      nameList.textContent = JSON.stringify(names);
+    };
+    </script>
+</body>
+</html>
