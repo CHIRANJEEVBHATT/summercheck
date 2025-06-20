@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" id="input" placeholder="Enter number" />
+  <button onclick="add()">Add</button>
+  <button onclick="sortAsc()">Sort Ascending</button>
+  <button onclick="sortDesc()">Sort Descending</button>
+  <p id="output"></p>
+
+  <script>
+    let numbers = [];
+
+    function add() {
+      const value = parseInt(document.getElementById("input").value);
+      if(!isNaN(value)){
+        numbers.push(value);
+        document.getElementById("output").innerText = numbers.join(" , ");
+        document.getElementById("input").value = "";
+      }
+    }
+
+    function sortAsc() {
+      numbers.sort((a, b) => a - b);
+      document.getElementById("output").innerText = numbers.join(", ");
+    }
+
+    function sortDesc() {
+      numbers.sort((a, b) => b - a);
+      document.getElementById("output").innerText = numbers.join(", ");
+    }
+  </script>
+</body>
+</html>

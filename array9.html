@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Shopping List</h1>
+
+    <input type="text" id="add">
+    <button onclick="addItems()">ADD ITEMS</button><br> <br>
+
+    <input type="number" id="remove">
+    <button onclick="removeItems()">REMOVE</button><br> <br>
+
+    <input type="text" id="newItem">
+    <input type="number" id="index">
+    <button onclick="newItem()">NEW ITEM</button> <br> <br>
+
+    <input type="text" id="replaceItem">
+    <input type="number" id="newIndex">
+    <button onclick="replace()">REPLACE</button> <br> <br>
+    
+    <button onclick="uppercase()">UPPERCASE</button><br> <br>
+
+    <input type="text" name="" id="filterItem">
+    <button onclick="filter()">FILTER</button> <br> <br>
+
+    <button onclick="clear()">CLEAR</button>
+     
+    <p id="list">LIST IS : </p>
+    <script>
+    let items = []
+    const list = document.getElementById("list");
+
+    const update = () => {
+        list.innerText = items.join(" ,");
+    };
+
+    const addItems = () => {
+        const add = document.getElementById("add").value.trim();
+        items.push(add);
+        document.getElementById("add").value = "";
+        update();
+    };
+    
+    const removeItems = () => {
+        const remove = document.getElementById("remove").value;
+        if(!isNaN(remove) && remove >=0 && remove < items.length){
+           items.splice(remove,1);
+        }
+        document.getElementById("remove").value = "";
+        update();
+    };
+
+    const newItem = () => {
+      const newItem = document.getElementById("newItem").value.trim();
+      const index = document.getElementById("index").value;
+
+      if(!isNaN(index) && index >=0 && index < items.length){
+        items.splice(index , 0 , newItem);
+      } 
+      document.getElementById("newItem").value = "";
+      document.getElementById("index").value = "";
+      update();
+    };
+
+    const replace = () => {
+        const replaceItem = document.getElementById("replaceItem").value.trim();
+        const newIndex = document.getElementById("newIndex").value;
+        if(!isNaN(newIndex) && newIndex >= 0 && newIndex < items.length){
+            items[newIndex] = replaceItem;
+        }
+        document.getElementById("replaceItem").value = "";
+        document.getElementById("newIndex").value = "";
+        update();
+    };
+
+    const uppercase = () => {
+        items = items.map(item => item.toUpperCase());
+        update();
+    };
+
+    const filter = () => {
+        const filterItem = document.getElementById("filterItem").value.trim();
+        const filter = items.filter(item => item.toLowerCase().includes(filterItem));
+        document.getElementById("filterItem").value = "";
+        document.getElementById("list").innerText = `filtered ${filter.join(" ,")}`;
+    };
+
+    const clear = () => {
+     items = [];
+     update();
+    };
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>
+  <input type="number" id="priceInput" placeholder="Enter price" />
+  <button onclick="addPrice()">Add Price</button>
+  <button onclick="getTotal()">Get Total</button>
+  <p id="output"></p>
+
+  <script>
+    const prices = [];
+
+    const addPrice = () => {
+      const value = parseFloat(document.getElementById("priceInput").value);
+      if (!isNaN(value)) {
+        prices.push(value);
+        document.getElementById("priceInput").value = "";
+        document.getElementById("output").innerText = "Prices: " + prices.join(", ");
+      }
+    };
+
+    const getTotal = () => {
+     const total  =  prices.reduce((acc , curr) => acc + curr , 0);
+      document.getElementById("output").innerText = "Total: ₹" + total;
+    };
+  </script>
+</body>
+</html>
