@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Document</title>
+</head>
+<body>
+  <h1>Student Manager</h1>
+
+
+  <input type="text" id="name" placeholder="Enter name" />
+  <input type="number" id="age" placeholder="Enter age" />
+  <input type="number" id="marks" placeholder="Enter marks" />
+  <button onclick="addStudent()">Add Student</button>
+
+
+  <button onclick="showAll()">Show All</button>
+  <button onclick="filterHighMarks()">Marks > 80</button>
+  <button onclick="filterYoungStudents()">Age < 20</button>
+  <button onclick="uppercaseNames()">Uppercase Names</button>
+
+
+  <br><br>
+  <input type="text" id="searchName" placeholder="Search by name" />
+  <button onclick="searchStudent()">Search</button>
+
+
+  <pre id="output"></pre>
+
+  <script>
+    let students = [];
+    const output = document.getElementById("output");
+
+    const addStudent = () => {
+      const name = document.getElementById("name").value.trim();
+      const age = parseInt(document.getElementById("age").value);
+      const marks = parseInt(document.getElementById("marks").value);
+
+      if (name && !isNaN(age) && !isNaN(marks)) {
+        students.push({ name, age, marks });
+        document.getElementById("name").value = "";
+        document.getElementById("age").value = "";
+        document.getElementById("marks").value = "";
+        showAll();
+      } else {
+        alert("Please enter valid name, age, and marks.");
+      }
+    };
+
+    const showAll = () => {
+      output.innerText = JSON.stringify(students, null, 2);
+    };
+
+    const filterHighMarks = () => {
+      const filtered = students.filter(student => student.marks > 80);
+      output.innerText = JSON.stringify(filtered, null, 2);
+    };
+
+    const filterYoungStudents = () => {
+      const filtered = students.filter(student => student.age < 20);
+      output.innerText = JSON.stringify(filtered, null, 2);
+    };
+
+    const uppercaseNames = () => {
+      students = students.map(student => ({
+        ...student,
+        name: student.name.toUpperCase()
+      }));
+      showAll();
+    };
+
+    const searchStudent = () => {
+      const searchValue = document.getElementById("searchName").value.trim().toLowerCase();
+      const result = students.filter(student =>
+        student.name.toLowerCase().includes(searchValue)
+      );
+      output.innerText = JSON.stringify(result, null, 2);
+    };
+  </script>
+</body>
+</html>
