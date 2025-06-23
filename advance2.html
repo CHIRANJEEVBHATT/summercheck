@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>PEOPLE</h1>
+
+    <input type="text" id="name" placeholder="Enter Name">
+    <input type="number" id="age" placeholder="Enter Age">
+    <button onclick="add()">ADD</button>
+    
+    <input type="text" id="find">
+    <button onclick="find()">FIND</button>
+
+    <p id="output"></p>
+
+    <script>
+        const people = [];
+        const output = document.getElementById("output");
+
+        const add = () =>{
+            const name = document.getElementById("name").value.trim();
+            const age = document.getElementById("age").value;
+            if(name && isNaN(age)){
+                people.push({name , age});
+                document.getElementById("name").value = "";
+                document.getElementById("age").value = "";
+                output.innerText = "person added";
+            }
+            else{
+                window.alert("enter valid detail");
+            }
+        };
+         
+        const find = () =>{
+            const find = document.getElementById("find").value.trim().toLowerCase();
+            const found = people.find(p => p.name.toLowerCase() === find);
+            if(found){
+                  output.innerText = `Found: ${found.name}, Age: ${found.age}`;
+            } else {
+        output.innerText = "Person not found.";
+      }
+
+      document.getElementById("find").value = "";
+    };
+    
+
+    </script>
+</body>
+</html>
