@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>TImer</h1>
+   <button onclick="start()">START</button>
+   <button onclick="stop()">STOP</button>
+   <p id="display"></p>
+
+   <script>
+    let count = 0;
+    let timer ;
+
+    const display = document.getElementById("display");
+    
+    const start = () => {
+      count = 10;
+
+      display.innerText = `count  = ${count}`;
+
+      clearInterval(timer);
+
+      timer = setInterval(() => {
+        count--;
+        if(count>=0){
+          display.innerText = "countdown" + count;
+        }else{
+          display.innerHTML = "boom";
+          clearInterval(timer);
+        }
+      },1000);
+    }
+ const stop = () =>{
+     clearInterval(timer);
+     display.innerText = count;
+ }
+   </script>
+</body>
+</html>
