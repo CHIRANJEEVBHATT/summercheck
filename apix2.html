@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>User Cards - Loop Version</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      width: 220px;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .card img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin: 8px 0 5px;
+     
+    }
+
+    .card p {
+      margin: 4px 0;
+      color: #555;
+      word-break: break-word;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="user-container"></div>
+
+  <script>
+    const container = document.getElementById('user-container');
+
+    for (let i = 1; i <= 5; i++) {
+      const name = `User ${i}`;
+      const email = `user${i}@example.com`;
+      const id = Math.random().toString(36).substring(2, 10);
+      const photo = `https://randomuser.me/api/portraits/lego/${i}.jpg`;
+
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      card.innerHTML = `
+        <img src="${photo}" alt="Photo of ${name}" />
+        <h3>${name}</h3>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>ID:</strong> ${id}</p>
+      `;
+
+      container.appendChild(card);
+    }
+  </script>
+
+</body>
+</html>
