@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <h2>Message Generator</h2>
+  <input type="text" id="username" placeholder="Enter your name">
+  
+  <select id="type">
+    <option value="greet">Greet</option>
+    <option value="bye">Farewell</option>
+  </select>
+  
+  <button onclick="processMessage()">Show Message</button>
+  
+  <p id="output"></p>
+
+  <script>
+    
+    const greet = name => `Hello, ${name}!`;
+    const farewell = name => `Goodbye, ${name}!`;
+
+
+    const showMessage = (name, callback) => {
+      return callback(name);
+    };
+
+    const processMessage = () => {
+      const name = document.getElementById("username").value.trim();
+      const type = document.getElementById("type").value;
+      const output = document.getElementById("output");
+
+      if (!name) {
+        output.textContent = "Please enter a name!";
+        return;
+      }
+
+      let message = "";
+
+      if (type === "greet") {
+        message = showMessage(name, greet);
+      } else {
+        message = showMessage(name, farewell);
+      }
+
+      output.textContent = message;
+    };
+  </script>
+</body>
+</html>
