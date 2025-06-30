@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Local Storage - Save Name</title>
+</head>
+<body>
+
+  <input type="text" id="username" placeholder="Enter your name">
+  <button onclick="saveName()">Save Name</button>
+  <button onclick="loadName()">Load Name</button>
+  <p id="output"></p>
+
+  <script>
+    const saveName = () =>{
+       const name =  document.getElementById("username").value.trim();
+       if(name){
+        localStorage.setItem("myname" , name);
+        document.getElementById("output").innerText = "Name saved!";
+       }
+        const loadName = () => {
+      const name = localStorage.getItem("myName");
+      document.getElementById("output").innerText = name
+        ? `Welcome back, ${name}!`
+        : "No name found in storage.";
+    };
+    }  
+    </script>
+
+</body>
+</html>
