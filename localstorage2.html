@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LocalStorage Array Example</title>
+</head>
+<body>
+  <h2>Document</h2>
+
+  <input type="text" id="fruitInput" placeholder="Enter a fruit">
+  <button onclick="addFruit()">Add Fruit</button>
+  <button onclick="showFruits()">Show Fruits</button>
+  <button onclick="clearFruits()">Clear All</button>
+
+  <p id="output"></p>
+
+  <script>
+    const addFruit = () => {
+      const fruit = document.getElementById("fruitInput").value.trim();
+      if (!fruit) return;
+
+      const fruits = JSON.parse(localStorage.getItem("fruits") || "[]");
+      fruits.push(fruit);
+
+      localStorage.setItem("fruits", JSON.stringify(fruits));
+      document.getElementById("fruitInput").value = "";
+    };
+
+    const showFruits = () => {
+      const fruits = JSON.parse(localStorage.getItem("fruits") || "[]");
+      document.getElementById("output").innerText =
+        fruits.length ? fruits.join(", ") : "No fruits saved.";
+    };
+
+    const clearFruits = () => {
+      localStorage.removeItem("fruits");
+      document.getElementById("output").innerText = "All fruits cleared.";
+    };
+  </script>
+</body>
+</html>
