@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+    }
+    #output {
+      margin-top: 20px;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1> Food Order Simulation</h1>
+  <button onclick="placeOrder()">Order Food</button>
+  <div id="output"></div>
+
+  <script>
+    function placeOrder() {
+      const output = document.getElementById("output");
+      output.textContent = "Ordering food... ";
+
+      let orderFood = new Promise((resolve, reject) => {
+        let foodIsAvailable = true; 
+
+        setTimeout(() => {
+          if (foodIsAvailable) {
+            resolve("Food is delivered ");
+          } else {
+            reject("Food not available ");
+          }
+        }, 2000);
+      });
+
+      orderFood
+        .then((message) => {
+          output.textContent = message;
+        })
+        .catch((error) => {
+          output.textContent = error;
+        });
+    }
+  </script>
+
+</body>
+</html>
